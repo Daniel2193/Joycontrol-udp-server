@@ -15,6 +15,11 @@ I made this script so I and others (using parsec) can play on my switch
 
   * `sudo pip3 install .`
   
+* Optional Steps
+
+  * Set the environment var "jcs_host" to your local IPv4 otherwise "0.0.0.0" is used
+  * Set the environment var "jcs_port" to your preffered port otherwise "7777" is used
+  
 * install additional dependencies
 
   * `sudo pip3 install asyncio asyncio_dgram`

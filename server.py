@@ -19,25 +19,18 @@ from joycontrol.server import create_hid_server
 
 logger = logging.getLogger(__name__)
 
-
-#
-a = False
-b = False
-#
-
-
-Running = True
-
-result = ""
+#Change this to True to see all received packets in the console
+debug = False
 
 
 async def start_server():
     start_server.stream = await asyncio_dgram.bind((os.getenv('jcs_host') | "0.0.0.0", os.getenv('jcs_port') | 8888))
-    print("server listening")
+    logger.info("server listening")
 
 async def server():
     data, src = await start_server.stream.recv()
-    print(f"recieved: {data.decode()!r} - ({data})")
+    if debug:
+        print(f"recieved: {data.decode()!r} - ({data})")
     server.res = data.decode("utf-8")
 
 async def set_stick(stick, val1, val2):
@@ -52,7 +45,6 @@ async def _main(args):
     else:
         # Create memory containing default controller stick calibration
         spi_flash = FlashMemory()
-
     # Get controller name to emulate from arguments
     controller = Controller.from_arg(args.controller)
 
@@ -70,9 +62,7 @@ async def _main(args):
             print('--------------------')
             print('--------------------')
             print('--------------------')
-            print()
             print('Controller Connected')
-            print()
             print('--------------------')
             print('--------------------')
             print('--------------------')
@@ -80,7 +70,6 @@ async def _main(args):
             await button_push(controller_state, 'x')
             while Running:
                 await server()
-                #print(f"check for: {server.res}")
                 if 'a' in server.res:
                     await button_push(controller_state, 'a')
                 if 'b' in server.res:
@@ -162,6 +151,7 @@ async def _main(args):
                     controller_state.r_stick_state.set_v(3840)
                     controller_state.r_stick_state.set_h(256)
                 if 'disconnect' in server.res:
+                    logger.info('Received disconnect command')
                     break
     finally:
         #pynput.keyboard.Listener.stop()

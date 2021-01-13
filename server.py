@@ -22,9 +22,15 @@ logger = logging.getLogger(__name__)
 #Change this to True to see all received packets in the console
 debug = False
 
+port = 7777
+host = "0.0.0.0"
+if os.getenv('jcs_port') != None:
+    port = int(os.getenv('jcs_port'))
+if os.getenv('jcs_host') != None:
+    host = os.getenv('jcs_host')
 
 async def start_server():
-    start_server.stream = await asyncio_dgram.bind((os.getenv('jcs_host') | "0.0.0.0", os.getenv('jcs_port') | 7777))
+    start_server.stream = await asyncio_dgram.bind((os.getenv('jcs_host') | "0.0.0.0", port | 7777))
     logger.info("server listening")
 
 async def server():

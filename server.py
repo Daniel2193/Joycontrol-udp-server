@@ -32,7 +32,7 @@ result = ""
 
 
 async def start_server():
-    start_server.stream = await asyncio_dgram.bind(("192.168.178.77",8888))
+    start_server.stream = await asyncio_dgram.bind((os.getenv('jcs_host') | "0.0.0.0", os.getenv('jcs_port') | 8888))
     print("server listening")
 
 async def server():

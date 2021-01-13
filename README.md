@@ -26,17 +26,23 @@ I made this script so I and others (using parsec) can play on my switch
 
 # Usage
 
-without BT MAC ADDRESS
+* without BT MAC ADDRESS
 
-- on your Switch go to the "Change Grip/Order" Page
+  * on your Switch go to the "Change Grip/Order" Page
 
-- `sudo python3 server.py PRO_CONTROLLER`
+  * `sudo python3 server.py PRO_CONTROLLER`
 
-with BT MAC ADDRESS
+* with BT MAC ADDRESS
 
-- `sudo python3 server.py -r [YOUR SWITCH BLUETOOTH MAC ADDRESS] PRO_CONTROLLER`
+  * `sudo python3 server.py -r [YOUR SWITCH BLUETOOTH MAC ADDRESS] PRO_CONTROLLER`
 
-- run the client application (not included in this repo yet)
+* run the client application (not included in this repo yet)
+
+#Known Issues
+
+* Server will crash if the Switch force disconnects the emulated controller
+
+  * temporary fix: restart the server
 
 # How to get the BT MAC ADDRESS
 
@@ -44,7 +50,7 @@ with BT MAC ADDRESS
 
 - Open new terminal
 
-- `bluetoothclt devices`
+- `bluetoothctl devices`
 
 #  The Protocol (for custom client applications)
 

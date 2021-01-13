@@ -38,7 +38,7 @@ I made this script so I and others (using parsec) can play on my switch
 
 * run the client application (not included in this repo yet)
 
-#Known Issues
+# Known Issues
 
 * Server will crash if the Switch force disconnects the emulated controller
 

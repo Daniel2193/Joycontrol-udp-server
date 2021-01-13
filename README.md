@@ -90,9 +90,13 @@ ls[direction] rs[direction] [space seperated buttons]
   * "l3": Left Analog Stick press
   * "m": Minus
   * "fc": Capture (Screenshot button)
+  
+  
+  * "disconnect": Shut the server down
 
 * Examples:
 
   * "ls0 rs0 a" -> press a
   * "ls3 rs0" -> left analog stick to the right
   * "ls1 rs8 y x" -> left analog stick up + right analog stick left up + press x + press y
+  * "disconnect" -> shut the server down

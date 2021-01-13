@@ -24,7 +24,7 @@ debug = False
 
 
 async def start_server():
-    start_server.stream = await asyncio_dgram.bind((os.getenv('jcs_host') | "0.0.0.0", os.getenv('jcs_port') | 8888))
+    start_server.stream = await asyncio_dgram.bind((os.getenv('jcs_host') | "0.0.0.0", os.getenv('jcs_port') | 7777))
     logger.info("server listening")
 
 async def server():

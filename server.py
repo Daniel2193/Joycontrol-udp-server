@@ -22,6 +22,8 @@ logger = logging.getLogger(__name__)
 #Change this to True to see all received packets in the console
 debug = False
 
+Running = True
+
 port = 7777
 host = "0.0.0.0"
 if os.getenv('jcs_port') != None:

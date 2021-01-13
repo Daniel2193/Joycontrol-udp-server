@@ -30,7 +30,7 @@ if os.getenv('jcs_host') != None:
     host = os.getenv('jcs_host')
 
 async def start_server():
-    start_server.stream = await asyncio_dgram.bind((os.getenv('jcs_host') | "0.0.0.0", port | 7777))
+    start_server.stream = await asyncio_dgram.bind((host, port))
     logger.info("server listening")
 
 async def server():

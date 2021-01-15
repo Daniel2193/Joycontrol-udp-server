@@ -26,9 +26,9 @@ Running = True
 
 port = 7777
 host = "0.0.0.0"
-if os.getenv('jcs_port') != None:
+if os.getenv('jcs_port') is not None:
     port = int(os.getenv('jcs_port'))
-if os.getenv('jcs_host') != None:
+if os.getenv('jcs_host') is not None:
     host = os.getenv('jcs_host')
 
 async def start_server():

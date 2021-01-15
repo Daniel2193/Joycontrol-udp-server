@@ -32,7 +32,7 @@ async def start_server():
     logger.info("server listening")
 
 async def server():
-    data, src = await start_server.stream.recv()
+    data, _ = await start_server.stream.recv()
     if debug:
         print(f"recieved: {data.decode()!r} - ({data})")
     server.res = data.decode("utf-8")
